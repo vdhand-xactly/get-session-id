@@ -1,0 +1,19 @@
+{
+  "name": "get-session-id",
+  "version": "1.0.0",
+  "description": "Grabs a Fresh Session ID from Incent every 20 mins",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Vaasu Dhand (vdhand@xactlycorp.com)",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "clipboardy": "^3.0.0",
+    "dotenv": "^10.0.0",
+    "node-cron": "^3.0.0",
+    "puppeteer-core": "^13.0.0"
+  }
+}
