@@ -1,10 +1,10 @@
 import chalk from "chalk";
 import clipboard from "clipboardy";
 import puppeteer from "puppeteer-core";
-import cron from 'node-cron'
-import dotenv from 'dotenv'
+import cron from "node-cron";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 const launchOptions = {
   headless: true,
@@ -14,13 +14,13 @@ const launchOptions = {
 };
 
 (async () => {
-    const task = cron.schedule("*/20 * * * *", async () => {
-        await run();
-      });
-      task.start()
-})()
+  await run();
+  cron.schedule("*/20 * * * *", async () => {
+    await run();
+  });
+})();
 
-async function run () {
+async function run() {
   const url = process.env.URL;
   const username = process.env.USERNAME;
   const password = process.env.PASSWORD;
@@ -57,8 +57,7 @@ async function run () {
     clipboard.writeSync(sessionId.value);
     console.log("SessionId: ", chalk.cyan(sessionId.value), "\n");
     await browser.close();
-
   } catch (error) {
     console.log(chalk.red(`Error: ${error}`));
   }
-};
+}
